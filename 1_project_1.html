@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI Project= HOME</title>
+    <style>
+        html{width:100%; height:170%;}
+        body{background:linear-gradient(4deg, rgb(49,65,96), rgb(109, 164, 138)); }
+        *{margin:0; padding:0; box-sizing: border-box;}
+        /*------------------ NAV 부분 -------------------------------*/
+        .nav-warp{ width: 100%; height: 40px; background-color: rgba(255,255,255,.2); position: fixed;  z-index: 15;}
+            .nav-left{display:flex; justify-content: center;}
+            .nav-left img{width: 35px; height: 35px; margin-top: 3px;}
+        /*------------------ Head 부분 -------------------------------*/
+        .head-box{padding-top: 40px; margin-left: 40px; height:700px; display: flex;}
+        .maintext{ justify-content: left; margin-left: 110px; position: relative; overflow: hidden;}
+        .maintext img{width: 500px;}
+        .headour img{width: 800px; position:absolute; top:150px; right: 190px; }
+        /*------------------ Main 부분 -------------------------------*/
+        #popup-layer{
+                position: fixed; 
+                top : 0; 
+                left : 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 100%; height: 100%;
+                z-index: 10000;
+            }
+            .popup-box{
+                position: relative;
+                top: 50%; left: 50%;
+                overflow: auto;
+                height: 600px; width: 80%;
+                transform: translate(-50%, -50%);
+                z-index: 1002;
+                background-color: white;
+                border-radius: 10px;
+                padding: 20px;
+            }
+
+        .mainGridWarp{ width:100%; display: grid; overflow: hidden;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 500px);
+                    grid-gap: 10px; margin:20px 50px 0px 50px;}
+            .gridBox1{grid-row:1/2; grid-column: 1/2; background-color: white; border-radius: 10px;}
+            .gridBox2{grid-row:1/2; grid-column: 2/3; background-color: purple; border-radius: 10px;}
+            .gridBox3{grid-row:1/2; grid-column: 3/4; background-color: beige; border-radius: 10px;}
+            .gridBox4{grid-row:2/3; grid-column: 1/2; background-color: black; border-radius: 10px;}
+            .gridBox5{grid-row:2/3; grid-column: 2/3; background-color: yellow; border-radius: 10px;}
+            .gridBox6{grid-row:2/3; grid-column: 3/4; background-color: green; border-radius: 10px;
+                display: flex; align-items: center;
+            }
+                #person_text{
+                    width: 70%; text-align: center; font-size: 5em;
+                }
+                #person_img{
+                    width: 200px; height: 200px; margin-right: 40px;
+                }
+                .closediv{position: fixed;  width: 100%; display: flex; justify-content: right;
+                  height: 30px; background-color: rgb(255, 255, 255);}
+        
+        .closeBtn{
+            width: 45px; height: 27px; margin:10px 10px 0px 0px;
+            position: fixed;
+        }
+
+        .popup-contents{
+            font-family: "210 옴니고딕OTF 020";
+        }
+    
+    /*------------------ Footer 부분 -------------------------------*/
+    </style>
+</head>
+<body>
+    <!------------------ NAV 부분 ------------------------------->
+    <nav class="nav-warp">
+        <div class="nav-left">
+            <img src="img/main.png" alt="main">
+        </div>
+    </nav>
+    <!------------------ Head 부분 ------------------------------->
+    <div class="head-warp">
+        <div class="head-box">
+            <div class="maintext">
+                <img src="img/main-text.png" alt="">
+            </div>
+            <div class="headour">
+                <img src="img/our.png" alt="">
+            </div>
+        </div>
+    </div>    <!------------------ Main 부분 ------------------------------->
+    <div class="mainGridWarp"  >
+        <div class="gridBox1">
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+            <div class="person">김다미 : null</div>
+        </div>
+        <div class="gridBox2">
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+            <div class="person">김다미 : null</div>
+        </div>
+        <div class="gridBox3">
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+            <div class="person">김다미 : null</div>
+        </div>
+        <div class="gridBox4">
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+            <div class="person">김다미 : null</div>
+        </div>
+        <div class="gridBox5" onclick="openLayerPopup()">
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+            <div class="person">김다미 : null</div>
+        </div>
+        <div class="gridBox6"  onclick="openLayerPopup()">
+            <div class="person" id = "person_text">김다미 : null</div>
+            <div class="person"><img src="img/다미님.png" id = "person_img"></div>
+        </div>
+        <div id = "popup-layer" style = "display: none;">
+            <div class="popup-box">
+                <div class="popup-contents" >
+                   <img src="img/Untitled-1.jpg" style="width: 55vw;">
+                </div>
+                <div class="closediv">
+                    <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup()"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!------------------ Footer 부분 ------------------------------->
+    <script>
+        const openLayerPopup = () => {
+            document.getElementById("popup-layer").style.display="block";
+        }
+        const closeLayerPopup = () => {
+            document.getElementById("popup-layer").style.display="none";
+        }
+    </script>
+</body>
+</html>
